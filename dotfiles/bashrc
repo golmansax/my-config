@@ -228,7 +228,7 @@ if (hash brew); then
 
   source /usr/local/opt/nvm/nvm.sh
 
-  export ANDROID_HOME=$(brew --prefix android-sdk)
+  export ANDROID_HOME=/usr/local/share/android-sdk
 else
   echo 'Installing Linux config...'
 
