@@ -1,0 +1,16 @@
+# @author holman
+#
+# Edited version of solarized color scheme (copies the 8 color sequence
+#  twice so it looks pretty in Vim)
+#
+# Install in /usr/share/xfce4/terminal/colorschemes/
+
+[Scheme]
+Name=My Solarized
+ColorForeground=#657b83
+ColorBackground=#002b36
+ColorCursor=#93a1a1
+TabActivityColor=#dc322f
+ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5
+ColorBold=#93a1a1
+ColorBoldUseDefault=FALSE

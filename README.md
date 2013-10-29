@@ -1,2 +1,3 @@
-my-config
+My Configurations
 =========
+For various things.
