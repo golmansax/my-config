@@ -14,15 +14,21 @@ sudo apt-get install -y software-properties-common
 
 # Installing OPAM
 sudo add-apt-repository -y ppa:avsm/ppa
+
+# avsm repo doesn't support saucy yet
+sudo sed 's/saucy/raring/g' avsm-ppa-saucy.list
 sudo apt-get update
-sudo apt-get install ocaml opam
+sudo apt-get install -y ocaml opam
 
 # Setup OPAM
 opam init -y
 . /home/$USER/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+eval `opam config env`
 
 # Install apt packages needed for OPAM install
-sudo apt-get install -y libgdbm-dev libpcre3-dev libssl-dev make m4 pkg-config
+sudo apt-get install -y libgdbm-dev libpcre3-dev libssl-dev make m4 \
+  pkg-config camlp4-extra
 
 # Install OPAM packages
-sudo opam install -y lwt deriving-ocsigen js_of_ocaml tyxml ocsigenserver eliom
+sudo opam install -y lwt deriving-ocsigen js_of_ocaml tyxml ocsigenserver \
+  eliom
