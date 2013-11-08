@@ -1,3 +1,10 @@
+#!/bin/bash
+#
+# @author holman
+#
+# Installs Ocsigen (OCaml) and Compass (Sass) frameworks
+# Tested on a DigitalOcean droplet with Ubuntu 13.10
+
 USER=`whoami`
 
 # For Sass

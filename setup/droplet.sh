@@ -1,3 +1,9 @@
+#!/bin/bash
+#
+# @author holman
+#
+# Sets up a DigitalOcean droplet for my liking, tested on Ubuntu 13.10
+
 ME=holman
 
 # Setup user
