@@ -33,6 +33,10 @@ else
   mkdir -p src
   cd src
   sudo apt-get install -y git-core
+
+  # Configure git
+  git config --global push.default simple
+
   git clone https://github.com/golmansax/my-config.git
 
   echo "*** Basic setup installed ***"
