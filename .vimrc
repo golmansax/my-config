@@ -39,6 +39,3 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Ignore python # smartindent
 :inoremap # X#
-
-" For git:vim-pathogen
-execute pathogen#infect()
