@@ -21,9 +21,6 @@ sudo apt-get install -y software-properties-common
 
 # Installing OPAM
 sudo add-apt-repository -y ppa:avsm/ppa
-
-# avsm repo doesn't support saucy yet
-sudo sed 's/saucy/raring/g' avsm-ppa-saucy.list
 sudo apt-get update
 sudo apt-get install -y ocaml opam
 
