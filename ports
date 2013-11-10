@@ -1,0 +1,6 @@
+# Keep a list of ports for production servers
+
+# Web servers
+80      nginx
+7700    my-site
+7701    gender-guess

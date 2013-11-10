@@ -21,3 +21,6 @@ rvm rubygems current
 
 # Install Rails
 gem install rails
+
+# Install Compass and Sass
+gem install compass sass
