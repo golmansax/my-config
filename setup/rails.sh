@@ -10,6 +10,9 @@ USER=`whoami`
 # Install RVM (Ruby Version Manager)
 sudo apt-get install -y curl
 \curl -L https://get.rvm.io | bash -s stable
+
+# Source rvm to use it
+source /home/holman/.rvm/scripts/rvm
 rvm requirements
 
 # Install latest Ruby
