@@ -43,8 +43,6 @@ else
   git config --global user.name "$FULL_NAME"
 
   git clone https://github.com/golmansax/my-config.git
-  echo "*** Installing vimrc ***"
-  cp my-config/.vimrc ~
 
   echo "*** Basic setup installed ***"
   echo "*** You can now remove this file ***"
