@@ -2,7 +2,7 @@
 #
 # @author holman
 #
-# Installs Rails (Ruby) and Compass (Sass) frameworks
+# Installs Rails (Ruby) framework
 # Tested on a DigitalOcean droplet with Ubuntu 13.10
 
 USER=`whoami`
@@ -24,6 +24,3 @@ rvm rubygems current
 
 # Install Rails
 gem install rails
-
-# Install Compass and Sass
-gem install compass sass
