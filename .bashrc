@@ -115,9 +115,8 @@ fi
 
 # Going to root directory of current git repo or a default git directory
 DEFAULT_GIT=/home/holman/src/my-config
-alias gitdir='git rev-parse --show-toplevel'
-alias cdgit="gitdir >& /dev/null; if [ $? -eq 0 ]; then cd `gitdir`; \
-  else cd $DEFAULT_GIT; fi"
+alias cdgit="eval 'cd \`git rev-parse --show-toplevel 2>/dev/null || \
+    echo $DEFAULT_GIT\`'"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -133,4 +132,3 @@ fi
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
