@@ -18,6 +18,9 @@ set bg=dark
 
 filetype on
 
+" Indent settings for makefile
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
