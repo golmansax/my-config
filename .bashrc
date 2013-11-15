@@ -113,8 +113,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Going to root directory of current git repo
-alias cdgit='cd "$(git rev-parse --show-toplevel)"'
+# Going to root directory of current git repo or a default git directory
+DEFAULT_GIT=/home/holman/src/my-config
+alias gitdir='git rev-parse --show-toplevel'
+alias cdgit="gitdir >& /dev/null; if [ $? -eq 0 ]; then cd `gitdir`; \
+  else cd $DEFAULT_GIT; fi"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
