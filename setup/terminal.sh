@@ -10,7 +10,7 @@ cd ~
 
 echo 'Creating symlinks to files in my-config'
 
-FILES=( .vimrc .bash_profile .profile .bashrc )
+FILES=( .vimrc .bash_profile .profile .bashrc .gitignore_global )
 for FILE in ${FILES[@]}; do
   echo " - $FILE"
   rm -f $FILE

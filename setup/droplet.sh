@@ -41,6 +41,7 @@ else
   git config --global push.default simple
   git config --global user.email "$EMAIL"
   git config --global user.name "$FULL_NAME"
+  git config --global core.excludesfile ~/.gitignore_global
 
   git clone https://github.com/golmansax/my-config.git
 
