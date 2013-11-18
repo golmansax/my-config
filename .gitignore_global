@@ -8,6 +8,9 @@
 *.exe
 *.o
 *.so
+# OCaml compiled code
+*.byte
+*.opt
 
 # Packages #
 ############
