@@ -120,15 +120,15 @@ alias cdgit="eval 'cd \`git rev-parse --show-toplevel 2>/dev/null || \
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# Configure OPAM (OCaml package manager)
-eval `opam config env`
-
 BIN_DIR=src/bin
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/$BIN_DIR" ] ; then
   export PATH="$HOME/$BIN_DIR:$PATH"
 fi
+
+# Configure OPAM (OCaml package manager)
+[[ -d "$HOME/.opam" ]] && eval `opam config env`
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
