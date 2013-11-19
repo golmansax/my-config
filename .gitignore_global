@@ -1,4 +1,7 @@
-# Stole these from Github tutorial on .gitignore
+# Stole some of this from Github tutorial on .gitignore
+
+# Vim temp files
+*.swp
 
 # Compiled source #
 ###################
