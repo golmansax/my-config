@@ -7,5 +7,5 @@
 [push]
 	default = simple
 [branch]
-  # always setup 'git pull' to rebase instead of merge
+  # Always setup 'git pull' to rebase instead of merge
   autosetuprebase = always
