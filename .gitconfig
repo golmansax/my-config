@@ -1,0 +1,11 @@
+[user]
+	email = holman@golmansax.com
+	name = Holman Gao
+[core]
+	editor = vim
+	excludesfile = /home/holman/.gitignore_global
+[push]
+	default = simple
+[branch]
+  # always setup 'git pull' to rebase instead of merge
+  autosetuprebase = always
