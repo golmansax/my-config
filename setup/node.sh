@@ -13,3 +13,6 @@ ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install RequireJS optimizer
 sudo npm install -g requirejs
+
+# Install Bower
+sudo npm install -g bower

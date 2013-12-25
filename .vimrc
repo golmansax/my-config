@@ -26,7 +26,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
-  au BufNewFile,BufRead *.html set filetype=php.html
+  au BufNewFile,BufRead *.html set filetype=htmljinja
   au BufNewFile,BufRead *.phpt set filetype=php
   au BufNewFile,BufRead *.inc set filetype=php
   au BufNewFile,BufRead *.template set filetype=htmljinja
@@ -42,3 +42,6 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Ignore python # smartindent
 :inoremap # X#
+
+" Install Pathogen bundles
+execute pathogen#infect()

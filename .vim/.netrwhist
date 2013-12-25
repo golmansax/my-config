@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/holman/.opam/system/build/conf-libpcre.1'
+let g:netrw_dirhist_2='/home/holman/.opam/repo/default/packages/lwt.2.4.3'
+let g:netrw_dirhist_3='/home/holman/src/gender-guess/db'
