@@ -9,8 +9,5 @@
 sudo apt-get update
 sudo apt-get install python-pip python-dev
 
-# Install Flask
-sudo pip install flask
-
-# Install ujson
-sudo pip install ujson
+# Install Flask and uWSGI (ujson is nice too)
+sudo pip install flask uwsgi ujson
