@@ -14,9 +14,6 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install -y nodejs
 
-# Symlink nodejs binary to node (for Node scripts)
-#sudo ln -s /usr/bin/nodejs /usr/bin/node
-
 # Install RequireJS optimizer
 sudo npm install -g requirejs
 
