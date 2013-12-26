@@ -6,7 +6,7 @@
 # Tested on a DigitalOcean droplet with Ubuntu 13.10
 
 # Install PIP (Python package manager)
-sudo apt-get install python-pip
+sudo apt-get install python-pip python-dev
 
 # Install Flask
 sudo pip install flask
