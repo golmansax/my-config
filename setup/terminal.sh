@@ -16,6 +16,6 @@ FILES=( .vimrc .vim .bash_profile .profile .bashrc .gitconfig
 
 for FILE in ${FILES[@]}; do
   echo " - $FILE"
-  rm -f $FILE
+  rm -rf $FILE
   ln -s src/my-config/$FILE $FILE
 done
