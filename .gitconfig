@@ -11,3 +11,6 @@
   autosetuprebase = always
 [color]
   diff = auto
+[alias]
+  stash-pull = !git stash && git pull && git stash pop
+  stash-push = !git stash-pull || git push
