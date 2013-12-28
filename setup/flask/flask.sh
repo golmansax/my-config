@@ -14,10 +14,14 @@ sudo pip install flask uwsgi ujson
 
 # Setup uWSGI
 sudo mkdir -p /var/log/uwsgi
-sudo chown -R www-data:www-data /var/log/uwsgi
+sudo chown -R www-data /var/log/uwsgi
 
 # Install uWSGI configuration file
 sudo cp `dirname $0`/uwsgi.conf /etc/init/
 
 # For vassals
-sudo mkdir /etc/uwsgi && sudo mkdir /etc/uwsgi/vassals
+sudo mkdir -p /etc/uwsgi/vassals
+
+# For uWSGI sockets
+sudo mkdir -p /var/www/uwsgi
+sudo chown -R www-data /var/www/uwsgi
