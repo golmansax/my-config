@@ -115,7 +115,7 @@ fi
 
 # Going to root directory of current git repo or a default git directory
 DEFAULT_GIT=/home/holman/src/my-config
-alias cdgit="eval 'cd \`git rev-parse --show-toplevel 2>/dev/null || \
+alias cd-git="eval 'cd \`git rev-parse --show-toplevel 2>/dev/null || \
     echo $DEFAULT_GIT\`'"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
