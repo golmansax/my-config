@@ -132,6 +132,11 @@ if [[ -a "$HOME/src/local/.bashrc" ]]; then
   source $HOME/src/local/.bashrc
 fi
 
+# For arc if we're using it
+if [[ -d "$HOME/.arc" ]]; then
+  export PATH="$PATH:$HOME/.arc/arcanist/bin"
+fi
+
 # Configure OPAM (OCaml package manager)
 [[ -d "$HOME/.opam" ]] && eval `opam config env`
 

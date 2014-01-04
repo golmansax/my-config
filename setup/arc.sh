@@ -6,7 +6,7 @@
 HOME=/home/holman
 
 # Install PHP5 client
-sudo apt-get install -y php5-cli
+sudo apt-get install -y php5-cli php5-curl php5-json
 
 mkdir -p $HOME/.arc
 
