@@ -1,12 +1,12 @@
 #!/bin/bash -e
-#
 # @author holman
 #
-# Sets up terminal (bash and vim)
+# Sets up dotfiles in terminal (bash and vim)
 
 # Make sure my-config has been grabbed already
+DOTFILES_DIR=src/my-config/dotfiles
 cd ~
-[ -d 'src/my-config' ]
+[[ -d "$DOTFILES_DIR" ]]
 
 echo 'Creating symlinks to files in my-config'
 
@@ -14,8 +14,8 @@ FILES=( .vimrc .vim .bash_profile .profile .bashrc .gitconfig
   .gitignore_global
 )
 
-for FILE in ${FILES[@]}; do
+for FILE in `ls $DOTFILES_DIR`; do
   echo " - $FILE"
-  rm -rf $FILE
-  ln -s src/my-config/$FILE $FILE
+  rm -rf .$FILE
+  ln -s $DOTFILES_DIR/$FILE .$FILE
 done
