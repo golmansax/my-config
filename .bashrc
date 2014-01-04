@@ -122,9 +122,14 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 BIN_DIR=src/bin
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/$BIN_DIR" ] ; then
+# Set PATH so it includes user's private bin if it exists
+if [[ -d "$HOME/$BIN_DIR" ]]; then
   export PATH="$HOME/$BIN_DIR:$PATH"
+fi
+
+# Source local .bashrc if it exists
+if [[ -a "$HOME/src/local/.bashrc" ]]; then
+  source $HOME/src/local/.bashrc
 fi
 
 # Configure OPAM (OCaml package manager)
