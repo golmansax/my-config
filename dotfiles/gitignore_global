@@ -44,3 +44,12 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Package manager generated directories #
+#########################################
+bower_components
+node_modules
+
+# Cache files #
+################
+.sass-cache
