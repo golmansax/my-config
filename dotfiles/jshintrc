@@ -86,6 +86,7 @@
     "describe": true,
     "expect": true,
     "it": true,
+    "jasmine": true,
     "spyOn": true,
 
     // Used by Angular mocks

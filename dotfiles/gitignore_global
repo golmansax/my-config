@@ -53,3 +53,11 @@ node_modules
 # Cache files #
 ################
 .sass-cache
+
+# Jasmine files #
+#################
+_SpecRunner.html
+
+# Grunt files #
+###############
+.grunt
