@@ -14,8 +14,8 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install -y nodejs
 
-# Install RequireJS optimizer
-sudo npm install -g requirejs
-
 # Install Bower
 sudo npm install -g bower
+
+# Install Grunt
+sudo npm install -g grunt-cli
