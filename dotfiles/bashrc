@@ -113,23 +113,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Below are things custom to my src dir
+SRC="$HOME/src"
+
 # Going to root directory of current git repo or a default git directory
-DEFAULT_GIT=/home/holman/src/my-config
-alias cd-git="eval 'cd \`git rev-parse --show-toplevel 2>/dev/null || \
-    echo $DEFAULT_GIT\`'"
+alias cd-git="cd \`git rev-parse --show-toplevel\`"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-BIN_DIR=src/bin
+# Bash complete going into any src directory
+alias cd-src="cd $SRC && cd"
+_cd-src() {
+  local CURRENT_PARAM
+  CURRENT_PARAM="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(ls "$SRC" | grep "^$CURRENT_PARAM"))
+}
+complete -F _cd-src cd-src
 
 # Set PATH so it includes user's private bin if it exists
-if [[ -d "$HOME/$BIN_DIR" ]]; then
-  export PATH="$HOME/$BIN_DIR:$PATH"
+MY_BIN="$SRC/bin"
+if [[ -d "$MY_BIN" ]]; then
+  export PATH="$MY_BIN:$PATH"
 fi
 
 # Source local .bashrc if it exists
-if [[ -a "$HOME/src/local/.bashrc" ]]; then
-  source $HOME/src/local/.bashrc
+if [[ -a "$SRC/local/.bashrc" ]]; then
+  source $SRC/local/.bashrc
 fi
 
 # For arc if we're using it
@@ -139,6 +146,8 @@ fi
 
 # Configure OPAM (OCaml package manager)
 [[ -d "$HOME/.opam" ]] && eval `opam config env`
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
