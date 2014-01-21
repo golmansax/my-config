@@ -4,6 +4,8 @@
 [core]
 	editor = vim
 	excludesfile = /home/holman/.gitignore_global
+[pull]
+	rebase = true
 [push]
 	default = simple
 [branch]
