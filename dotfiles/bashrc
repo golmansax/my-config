@@ -117,37 +117,45 @@ fi
 SRC="$HOME/src"
 
 # Going to root directory of current git repo or a default git directory
-alias cd-git="cd \`git rev-parse --show-toplevel\`"
+alias cd-git="git rev-parse --show-toplevel | cd"
 
 # Bash complete going into any src directory
-alias cd-src="cd $SRC && cd"
-_cd-src() {
-  local CURRENT_PARAM
-  CURRENT_PARAM="${COMP_WORDS[COMP_CWORD]}"
-  COMPREPLY=($(ls "$SRC" | grep "^$CURRENT_PARAM"))
+_cd-src_command() {
+  if [[ $# -lt 1 ]]; then
+    cd $SRC
+  else
+    cd $SRC/$1
+  fi
 }
-complete -F _cd-src cd-src
+alias cd-src=_cd-src_command
 
-# Set PATH so it includes user's private bin if it exists
-MY_BIN="$SRC/bin"
-if [[ -d "$MY_BIN" ]]; then
-  export PATH="$MY_BIN:$PATH"
-fi
+_cd-src_complete() {
+  COMPREPLY=($(compgen -W "$(ls $SRC)" -- ${COMP_WORDS[COMP_CWORD]}))
+}
+complete -F _cd-src_complete cd-src
+
+# For bin in my github
+PUBLIC_BIN="$SRC/my-config/bin"
+[[ -d "$PUBLIC_BIN" ]] && export PATH="$PUBLIC_BIN:$PATH"
+
+# Used for files local to this machine
+LOCAL="$SRC/local"
 
 # Source local .bashrc if it exists
-if [[ -a "$SRC/local/.bashrc" ]]; then
-  source $SRC/local/.bashrc
-fi
+[[ -a "$LOCAL/.bashrc" ]] && source "$LOCAL/.bashrc"
+
+# Set PATH so it includes user's private bin if it exists
+PRIVATE_BIN="$LOCAL/bin"
+[[ -d "$PRIVATE_BIN" ]] && export PATH="$PRIVATE_BIN:$PATH"
 
 # For arc if we're using it
-if [[ -d "$HOME/.arc" ]]; then
-  export PATH="$PATH:$HOME/.arc/arcanist/bin"
-fi
+[[ -d "$HOME/.arc" ]] && export PATH="$PATH:$HOME/.arc/arcanist/bin"
 
 # Configure OPAM (OCaml package manager)
 [[ -d "$HOME/.opam" ]] && eval `opam config env`
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

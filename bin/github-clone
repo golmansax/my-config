@@ -1,0 +1,10 @@
+#!/bin/bash
+
+usage() {
+  echo 'github-clone [user] [repo]'
+  exit
+}
+
+[[ $# -lt 2 ]] && usage
+
+git clone https://github.com/$1/${2}.git
