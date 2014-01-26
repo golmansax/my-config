@@ -1,0 +1,10 @@
+#!/bin/bash
+# @author holman
+#
+# Loads my config files from a Github repo
+
+MY_CONFIG_DIR=/home/holman/src/my-config
+
+cd $MY_CONFIG_DIR
+git pull --rebase
+./setup/dotfiles.sh
