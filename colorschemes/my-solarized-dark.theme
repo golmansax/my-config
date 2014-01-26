@@ -6,7 +6,7 @@
 # Install in /usr/share/xfce4/terminal/colorschemes/
 
 [Scheme]
-Name=My Solarized
+Name=My Solarized Dark
 ColorForeground=#657b83
 ColorBackground=#002b36
 ColorCursor=#93a1a1
