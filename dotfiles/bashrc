@@ -117,7 +117,8 @@ fi
 SRC="$HOME/src"
 
 # Going to root directory of current git repo or a default git directory
-alias cd-git="git rev-parse --show-toplevel | cd"
+GIT_DIR_COMMAND='git rev-parse --show-toplevel'
+alias cd-git="$GIT_DIR_COMMAND && cd \`$GIT_DIR_COMMAND\`"
 
 # Bash complete going into any src directory
 _cd-src_command() {
