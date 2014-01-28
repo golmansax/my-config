@@ -1,10 +1,15 @@
 #!/bin/bash
 
 usage() {
-  echo 'Usage: github-clone [user] [repo]'
+  echo 'Usage: github-clone [repo-account] [repo] [optional: user]'
   exit
 }
 
 [[ $# -lt 2 ]] && usage
 
-git clone https://github.com/$1/${2}.git
+
+# Default for user
+USER=golmansax
+[[ "$3" != "" ]] && USER=$3
+
+git clone https://$USER@github.com/$1/${2}.git
