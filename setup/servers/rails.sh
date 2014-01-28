@@ -16,11 +16,23 @@ source /home/holman/.rvm/scripts/rvm
 rvm requirements
 
 # Install latest Ruby
-rvm install ruby
-rvm use ruby --default
+#rvm install ruby
+#rvm use ruby --default
 
 # Install latest RubyGems
 rvm rubygems current
 
 # Install Rails
 gem install rails
+
+# Postgres
+sudo apt-get install -y postgresql postgresql-client postgresql-contrib \
+  # This lib needed for installing the postgres gem
+  libpq-dev \
+  imagemagick libmagickwand-dev
+
+# Use Ruby 2.0.0
+rvm install 2.0.0
+rvm use 2.0.0 --default
+gem install rubygems-bundler
+gem regenerate_binstubs
