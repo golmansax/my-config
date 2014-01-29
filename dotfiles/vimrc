@@ -45,3 +45,6 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Install Pathogen bundles
 execute pathogen#infect()
+
+" Install CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
