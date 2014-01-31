@@ -147,7 +147,7 @@ BINS=(
   $LOCAL/bin
   $HOME/.rvm/bin
   $HOME/.arc/arcanist/bin
-  $SRC/synchroform/script/bin
+  $SRC/synchroform/bin
 )
 for i in ${!BINS[*]}; do
   BIN=${BINS[$i]}
