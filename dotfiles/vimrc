@@ -1,5 +1,10 @@
 " author @holman
 
+" Install pathogen things
+execute pathogen#infect()
+
+filetype plugin indent on
+
 set rnu
 set ruler
 set autoindent
@@ -27,10 +32,9 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
   au BufNewFile,BufRead *.html set filetype=htmljinja
-  au BufNewFile,BufRead *.phpt set filetype=php
   au BufNewFile,BufRead *.inc set filetype=php
-  au BufNewFile,BufRead *.template set filetype=htmljinja
   au BufNewFile,BufRead *.scss set filetype=scss
+  au BufNewFile,BufRead *.haml set filetype=haml
 augroup END
 
 " Bash like tab completion
@@ -42,9 +46,3 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Ignore python # smartindent
 :inoremap # X#
-
-" Install Pathogen bundles
-execute pathogen#infect()
-
-" Install CtrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
