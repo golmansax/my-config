@@ -15,5 +15,6 @@
   diff = auto
 	ui = true
 [alias]
+  upstream-push = !git push origin `git rev-parse --abbrev-ref HEAD`
   stash-pull = !git stash && git pull && git stash pop
   stash-push = !git stash-pull || git push
