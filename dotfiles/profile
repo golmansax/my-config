@@ -8,15 +8,20 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
+# If running bash
 if [ -n "$BASH_VERSION" ]; then
-  # include .bashrc if it exists
+  # Include .bashrc if it exists
   if [ -f "$HOME/.bashrc" ]; then
 	  . "$HOME/.bashrc"
   fi
 fi
 
-nohup redshift -l 37.783:-122.417 -b 0.7 2>&1 > /dev/null &
+# Pull in my-config changes
+cd $HOME/src/my-config && git stash-pull && cd $HOME
 
-DROPBOX_DIR=/home/holman/.dropbox-dist
+# Start Redshift if installed
+which redshift && nohup redshift -l 37.783:-122.417 -b 0.7 2>&1 > /dev/null &
+
+# Start Dropbox if installed
+DROPBOX_DIR=$HOME/.dropbox-dist
 [[ -d $DROPBOX_DIR ]] && nohup $DROPBOX_DIR/dropboxd 2>&1 > /dev/null &
