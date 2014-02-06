@@ -148,6 +148,7 @@ BINS=(
   $HOME/.rvm/bin
   $HOME/.arc/arcanist/bin
   $SRC/synchroform/bin
+  /usr/local/heroku/bin
 )
 for i in ${!BINS[*]}; do
   BIN=${BINS[$i]}

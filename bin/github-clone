@@ -1,8 +1,9 @@
 #!/bin/bash
 
 usage() {
-  echo 'Usage: github-clone [repo-account] [repo] ' +\
-    '[optional: output-folder] [optional: user]'
+  USAGE='Usage: github-clone [repo-account] [repo] '
+  USAGE+='[optional: output-folder] [optional: user]'
+  echo $USAGE
   exit
 }
 
