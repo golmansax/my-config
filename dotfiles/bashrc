@@ -113,6 +113,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# For repos with NPM, and adding binaries to path
+alias npm-exec='PATH=$(npm bin):$PATH'
+
 # Below are things custom to my src dir
 SRC="$HOME/src"
 
