@@ -116,6 +116,9 @@ fi
 # For repos with NPM, and adding binaries to path
 alias npm-exec='PATH=$(npm bin):$PATH'
 
+# Jasmine and Chromium issue
+alias chromium-browser='chromium-browser --allow-file-access-from-files'
+
 # Below are things custom to my src dir
 SRC="$HOME/src"
 
