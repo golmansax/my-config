@@ -2,16 +2,11 @@
 
 usage() {
   USAGE='Usage: github-clone [repo-account] [repo] '
-  USAGE+='[optional: output-folder] [optional: user]'
+  USAGE+='[optional: output-folder]'
   echo $USAGE
   exit
 }
 
 [[ $# -lt 2 ]] && usage
 
-
-# Default for user
-USER=golmansax
-[[ "$4" != "" ]] && USER=$4
-
-git clone https://$USER@github.com/$1/${2}.git $3
+git clone ssh://git@github.com/$1/${2}.git $3
