@@ -17,7 +17,8 @@
 [alias]
   fetch-pull = !git fetch && git stash-pull
   prune-remote = !git remote prune origin
-  upstream-push = !git push origin `git rev-parse --abbrev-ref HEAD` \
+  push-upstream = !git push origin `git rev-parse --abbrev-ref HEAD` \
     --set-upstream
   stash-pull = !git stash && git pull && git stash pop
   stash-push = !git stash-pull || git push
+  remove-untracked = !git clean -fd
