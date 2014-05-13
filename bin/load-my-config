@@ -7,4 +7,4 @@ MY_CONFIG_DIR=/home/holman/src/my-config
 
 cd $MY_CONFIG_DIR
 git pull --rebase
-./setup/dotfiles.sh
+./setup/machine/dotfiles.sh
