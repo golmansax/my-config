@@ -15,8 +15,8 @@
   diff = auto
 	ui = true
 [alias]
-  current-hash = !git log --pretty=format:'%h' -n 1
   fetch-pull = !git fetch && git stash-pull
+  last-commit = !git show `git log --pretty=format:'%h' -n 1`
   prune-remote = !git remote prune origin
   push-upstream = !git push origin `git rev-parse --abbrev-ref HEAD` \
     --set-upstream

@@ -21,6 +21,8 @@ set colorcolumn=80
 syntax on
 set bg=dark
 
+let g:ctrlp_max_files=0
+
 filetype on
 
 " Indent settings for makefile
