@@ -26,8 +26,8 @@ let g:ctrlp_max_files=0
 filetype on
 
 " Automatically enter NODETree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * if argc() | wincmd w | endif
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * if argc() | wincmd w | endif
 
 " Indent settings for makefile
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
