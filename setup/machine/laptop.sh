@@ -7,7 +7,8 @@
 
 sudo apt-get update
 sudo apt-get purge -y pidgin
-sudo apt-get install -y chromium-browser vim redshift pepperflashplugin-nonfree
+sudo apt-get install -y chromium-browser vim redshift \
+  pepperflashplugin-nonfree libxcb-randr0-dev
 sudo update-pepperflashplugin-nonfree --install
 sudo apt-get autoremove -y
 sudo apt-get upgrade -y
