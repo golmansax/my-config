@@ -14,17 +14,7 @@ if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
 	  . "$HOME/.bashrc"
   fi
-fi
 
-# Pull in my-config changes
-#cd $HOME/src/my-config && git stash-pull && cd $HOME
-
-MACHINE=`uname -n`
-if [ $MACHINE == 'pikachu' ] || [ $MACHINE == 'dragonair' ]; then
-  # Start Redshift if installed
-  which redshift && nohup redshift -l 37.783:-122.417 -b 0.7 2>&1 > /dev/null &
-
-  # Start Dropbox if installed
-  DROPBOX_DIR=$HOME/.dropbox-dist
-  [[ -d $DROPBOX_DIR ]] && nohup $DROPBOX_DIR/dropboxd 2>&1 > /dev/null &
+  # Startup commands
+  $SRC/my-config/bin/startup-setup
 fi
