@@ -25,7 +25,7 @@ gem regenerate_binstubs
 rvm rubygems current
 
 # Install Rails
-gem install rails
+gem install rails zeus
 
 # Postgres and ImageMagick
 sudo apt-get install -y postgresql postgresql-client postgresql-contrib \
