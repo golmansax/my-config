@@ -6,3 +6,4 @@ ctrlp.vim: https://github.com/kien/ctrlp.vim
 nerdtree: http://www.vim.org/scripts/script.php?script_id=1658
 vim-coffee-script: http://www.vim.org/scripts/script.php?script_id=3590
 vim-jinja: http://www.vim.org/scripts/script.php?script_id=1856
+vim-jsx: https://github.com/mxw/vim-jsx
