@@ -3,6 +3,7 @@
 " Install pathogen things
 execute pathogen#infect()
 
+syntax on
 filetype plugin indent on
 
 set rnu
@@ -18,12 +19,9 @@ set smartcase
 set visualbell " Flash screen instead of sounding beep
 set colorcolumn=80
 
-syntax on
 set bg=dark
 
 let g:ctrlp_max_files=0
-
-filetype on
 
 " Automatically enter NODETree
 " autocmd VimEnter * NERDTree
