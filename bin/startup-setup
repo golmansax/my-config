@@ -9,3 +9,6 @@ which redshift && nohup redshift -l 37.783:-122.417 -b 0.7 2>&1 > /dev/null &
 # Start Dropbox if installed
 DROPBOX_DIR=$HOME/.dropbox-dist
 [[ -d $DROPBOX_DIR ]] && nohup $DROPBOX_DIR/dropboxd 2>&1 > /dev/null &
+
+# Start Hipchat
+which hipchat && nohup hipchat 2>&1 > /dev/null &
