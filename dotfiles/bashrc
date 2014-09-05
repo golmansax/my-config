@@ -166,3 +166,6 @@ done
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# added by travis gem
+[ -f /home/holman/.travis/travis.sh ] && source /home/holman/.travis/travis.sh
