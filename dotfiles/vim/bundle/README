@@ -8,6 +8,7 @@ rails: http://www.vim.org/scripts/script.php?script_id=1567
 vim-coffee-script: http://www.vim.org/scripts/script.php?script_id=3590
 vim-jinja: http://www.vim.org/scripts/script.php?script_id=1856
 vim-jsx: https://github.com/mxw/vim-jsx
+vim-jst: https://github.com/briancollins/vim-jst
 vim-javascript: https://github.com/pangloss/vim-javascript
 vim-mustache-handlebars: https://github.com/mustache/vim-mustache-handlebars
 vim-stylus: https://github.com/wavded/vim-stylus
