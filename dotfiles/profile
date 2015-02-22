@@ -16,5 +16,5 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 
   # Startup commands
-  $SRC/my-config/bin/startup-setup
+  $HOME/src/my-config/bin/startup-setup
 fi
