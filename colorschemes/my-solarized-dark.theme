@@ -11,6 +11,6 @@ ColorForeground=#657b83
 ColorBackground=#002b36
 ColorCursor=#93a1a1
 TabActivityColor=#dc322f
-ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#fdf6e3;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5
+ColorPalette=#eee8d5;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#eee8d5;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5
 ColorBold=#93a1a1
 ColorBoldUseDefault=FALSE
