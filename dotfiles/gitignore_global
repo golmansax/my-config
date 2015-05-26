@@ -2,6 +2,7 @@
 
 # Vim temp files
 *.swp
+*.swo
 .netrwhist
 
 # Compiled source #

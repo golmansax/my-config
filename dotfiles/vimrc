@@ -37,10 +37,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
-  au BufNewFile,BufRead *.html set filetype=htmljinja
   au BufNewFile,BufRead *.inc set filetype=php
-  au BufNewFile,BufRead *.scss set filetype=scss
-  au BufNewFile,BufRead *.haml set filetype=haml
 augroup END
 
 " Bash like tab completion

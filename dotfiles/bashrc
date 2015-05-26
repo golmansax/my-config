@@ -121,8 +121,37 @@ alias chromium-browser='chromium-browser --allow-file-access-from-files'
 
 export BUNDLER_EDITOR=vim
 
+# Python virtualenvwrapper
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
 # Below are things custom to my src dir
 SRC="$HOME/src"
+
+
+# ***** virtualenv-cd *****
+function check-for-virtualenv {
+  [ -d .git ] || git rev-parse --git-dir &> /dev/null
+
+  if [ $? == 0 ]; then
+    local ENV_NAME=`basename \`pwd\``
+
+    if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+      workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+    fi
+  elif [ $CD_VIRTUAL_ENV ]; then
+    deactivate && unset CD_VIRTUAL_ENV
+  fi
+}
+
+function cd {
+  builtin cd "$@" && check-for-virtual-env
+}
+
+check-for-virtualenv
+# ***** end virtualenv-cd *****
+
 
 # Going to root directory of current git repo or a default git directory
 GIT_DIR_COMMAND='git rev-parse --show-toplevel'
