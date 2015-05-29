@@ -146,7 +146,7 @@ function check-for-virtualenv {
 }
 
 function cd {
-  builtin cd "$@" && check-for-virtual-env
+  builtin cd "$@" && check-for-virtualenv
 }
 
 check-for-virtualenv
