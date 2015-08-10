@@ -1,3 +1,6 @@
 [submodule "dotfiles/vim/bundle/vim-jade"]
 	path = dotfiles/vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
+[submodule "dotfiles/vim/bundle/vim-cucumber"]
+	path = dotfiles/vim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber
