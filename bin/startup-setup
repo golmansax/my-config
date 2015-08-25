@@ -12,5 +12,3 @@ DROPBOX_DIR=$HOME/.dropbox-dist
 
 # Start Hipchat
 which hipchat && nohup hipchat 2>&1 > /dev/null &
-
-mailcatcher

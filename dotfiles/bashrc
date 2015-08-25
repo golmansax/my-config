@@ -113,6 +113,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
+# START OF MY CODE
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
+alias ls='ls -G' # I put in for Mac
+
 # For repos with NPM, and adding binaries to path
 alias npm-exec='PATH=$(npm bin):$PATH'
 
@@ -121,35 +130,36 @@ alias chromium-browser='chromium-browser --allow-file-access-from-files'
 
 export BUNDLER_EDITOR=vim
 
-# Python virtualenvwrapper
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Below are things custom to my src dir
 SRC="$HOME/src"
 
+# Python virtualenvwrapper
+if [ -a /usr/local/bin/veritualenvwrapper.sh ]; then
+  VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+  export WORKON_HOME=~/.virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
 
-# ***** virtualenv-cd *****
-function check-for-virtualenv {
-  [ -d .git ] || git rev-parse --git-dir &> /dev/null
+  # ***** virtualenv-cd *****
+  function check-for-virtualenv {
+    [ -d .git ] || git rev-parse --git-dir &> /dev/null
 
-  if [ $? == 0 ]; then
-    local ENV_NAME=`basename \`pwd\``
+    if [ $? == 0 ]; then
+      local ENV_NAME=`basename \`pwd\``
 
-    if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
-      workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+      if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+        workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+      fi
+    elif [ $CD_VIRTUAL_ENV ]; then
+      deactivate && unset CD_VIRTUAL_ENV
     fi
-  elif [ $CD_VIRTUAL_ENV ]; then
-    deactivate && unset CD_VIRTUAL_ENV
-  fi
-}
+  }
 
-function cd {
-  builtin cd "$@" && check-for-virtualenv
-}
+  function cd {
+    builtin cd "$@" && check-for-virtualenv
+  }
 
-check-for-virtualenv
+  check-for-virtualenv
+fi
 # ***** end virtualenv-cd *****
 
 
