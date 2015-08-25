@@ -3,7 +3,7 @@
 	name = Holman Gao
 [core]
 	editor = vim
-	excludesfile = /home/holman/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [pull]
 	rebase = true
 [push]
