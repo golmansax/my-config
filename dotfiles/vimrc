@@ -19,6 +19,7 @@ set ignorecase
 set smartcase
 set visualbell " Flash screen instead of sounding beep
 set colorcolumn=80
+colorscheme solarized
 
 set bg=dark
 
