@@ -17,9 +17,11 @@
 [alias]
   fetch-pull = !git fetch && git stash-pull
   last-commit = !git show `git log --pretty=format:'%h' -n 1`
-  prune-remote = !git remote prune origin
+  prune-branches = !git remote prune origin && git branch --merged master | \
+    grep -v master | grep -v staging | xargs -n 1 git branch -d
   push-upstream = !git push origin `git rev-parse --abbrev-ref HEAD` \
     --set-upstream
+  push-force-with-lease = push --force-with-lease
   stash-pull = !git stash && git pull && git stash pop
   pull-push = !git pull || git push
   remove-untracked = !git clean -fd
