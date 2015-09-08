@@ -102,8 +102,7 @@ fi
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-hash brew
-if [ $? -eq 0 ] && [ -f `brew --prefix`/etc/bash_completion ]; then
+if (hash brew) && [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
@@ -209,3 +208,5 @@ export ANDROID_HOME=$HOME/Android/Sdk
 
 # added by travis gem
 [ -f /Users/holman/.travis/travis.sh ] && source /Users/holman/.travis/travis.sh
+
+echo "bashrc loaded!"
