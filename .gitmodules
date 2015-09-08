@@ -7,3 +7,6 @@
 [submodule "dotfiles/vim/bundle/vim-colors-solarized"]
 	path = dotfiles/vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "dotfiles/vim/bundle/php.vim"]
+	path = dotfiles/vim/bundle/php.vim
+	url = https://github.com/StanAngeloff/php.vim.git
