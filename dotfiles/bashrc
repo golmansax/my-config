@@ -102,10 +102,6 @@ fi
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-if (hash brew) && [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
 test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls='ls --color=auto'
 #alias dir='dir --color=auto'
@@ -208,5 +204,14 @@ export ANDROID_HOME=$HOME/Android/Sdk
 
 # added by travis gem
 [ -f /Users/holman/.travis/travis.sh ] && source /Users/holman/.travis/travis.sh
+
+if (hash brew); then
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+  fi
+
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+fi
 
 echo "bashrc loaded!"
