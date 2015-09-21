@@ -24,7 +24,7 @@ colorscheme solarized
 set bg=dark
 
 let g:ctrlp_max_files=0
-let g:ctrlp_custom_ignore = '\v[\/](coverage|bower_components|tmp|node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " Automatically enter NODETree
 " autocmd VimEnter * NERDTree
@@ -38,7 +38,8 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
-  au BufNewFile,BufRead *.inc set filetype=php
+  au BufNewFile,BufRead *.inc,*.html set filetype=php
+  au BufNewFile,BufRead *.template set filetype=jinja
 augroup END
 
 " Bash like tab completion
