@@ -205,13 +205,18 @@ export ANDROID_HOME=$HOME/Android/Sdk
 # added by travis gem
 [ -f /Users/holman/.travis/travis.sh ] && source /Users/holman/.travis/travis.sh
 
+export NVM_DIR=~/.nvm
+
 if (hash brew); then
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
   fi
 
-  export NVM_DIR=~/.nvm
   source $(brew --prefix nvm)/nvm.sh
+fi
+
+if [ -f ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
 fi
 
 echo "bashrc loaded!"
