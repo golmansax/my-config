@@ -111,12 +111,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# For repos with NPM, and adding binaries to path
-alias npm-exec='PATH=$(npm bin):$PATH'
-
-# Jasmine and Chromium issue
-alias chromium-browser='chromium-browser --allow-file-access-from-files'
-
 export BUNDLER_EDITOR=vim
 
 # Below are things custom to my src dir
@@ -200,19 +194,20 @@ done
 # added by travis gem
 [ -f /home/holman/.travis/travis.sh ] && source /home/holman/.travis/travis.sh
 
-export ANDROID_HOME=$HOME/Android/Sdk
-
 # added by travis gem
 [ -f /Users/holman/.travis/travis.sh ] && source /Users/holman/.travis/travis.sh
 
 export NVM_DIR=~/.nvm
 
 if (hash brew); then
+  # On a Mac
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
   fi
 
   source $(brew --prefix nvm)/nvm.sh
+
+  export ANDROID_HOME=$(brew --prefix android-sdk)
 fi
 
 if [ -f ~/.nvm/nvm.sh ]; then
