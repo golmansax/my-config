@@ -23,6 +23,6 @@
     --set-upstream
   push-force-with-lease = push --force-with-lease
   stash-pull = !git stash && git pull && git stash pop
-  pull-push = !git pull || git push
+  pull-push = !git pull && git push
   remove-untracked = !git clean -fd
   compare = log --left-right --graph --cherry-pick --oneline
