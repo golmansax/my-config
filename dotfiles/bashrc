@@ -150,6 +150,11 @@ fi
 GIT_DIR_COMMAND='git rev-parse --show-toplevel'
 alias cd-git="$GIT_DIR_COMMAND && cd \`$GIT_DIR_COMMAND\`"
 
+_cd-file_command() {
+  cd `dirname $1`
+}
+alias cd-file=_cd-file_command
+
 # Bash complete going into any src directory
 _cd-src_command() {
   if [[ $# -lt 1 ]]; then
