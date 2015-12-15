@@ -16,7 +16,6 @@
 	ui = true
 [alias]
   fetch-pull = !git fetch && git stash-pull
-  last-commit = !git show `git log --pretty=format:'%h' -n 1`
   prune-branches = !git remote prune origin && git branch --merged master | \
     grep -v master | grep -v staging | xargs -n 1 git branch -d
   push-upstream = !git push origin `git rev-parse --abbrev-ref HEAD` \
