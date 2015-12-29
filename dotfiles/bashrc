@@ -117,8 +117,14 @@ export BUNDLER_EDITOR=vim
 SRC="$HOME/src"
 
 # Python virtualenvwrapper
-if [ -a /usr/local/bin/veritualenvwrapper.sh ]; then
-  VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
+  # Python bin located differently on Mac vs Linux
+  if [ -f /usr/local/bin/python3 ]; then
+    VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  else
+    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+  fi
+
   export WORKON_HOME=~/.virtualenvs
   source /usr/local/bin/virtualenvwrapper.sh
 
