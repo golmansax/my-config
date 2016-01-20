@@ -157,7 +157,8 @@ GIT_DIR_COMMAND='git rev-parse --show-toplevel'
 alias cd-git="$GIT_DIR_COMMAND && cd \`$GIT_DIR_COMMAND\`"
 
 _cd-file_command() {
-  cd `dirname $1`
+  DIR=`dirname $1`
+  [ "$DIR" ] && cd $DIR
 }
 alias cd-file=_cd-file_command
 
