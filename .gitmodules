@@ -25,3 +25,6 @@
 [submodule "dotfiles/vim/bundle/Vim-Jinja2-Syntax"]
 	path = dotfiles/vim/bundle/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax
+[submodule "dotfiles/vim/bundle/vim-jsx"]
+	path = dotfiles/vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx
