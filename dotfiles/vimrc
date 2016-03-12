@@ -27,9 +27,7 @@ set bg=dark
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist)\/|(\.(swp|ico|git|svn))$'
 
-" Automatically enter NODETree
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * if argc() | wincmd w | endif
+let g:jsx_ext_required = 0
 
 " Indent settings for makefile
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
