@@ -111,7 +111,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-export BUNDLER_EDITOR=vim
+export EDITOR=vim
+export BUNDLER_EDITOR="$EDITOR"
 
 # Below are things custom to my src dir
 SRC="$HOME/src"
@@ -130,7 +131,7 @@ if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
 
   # ***** virtualenv-cd *****
   function check-for-virtualenv {
-    [ -d .git ] || git rev-parse --git-dir &> /dev/null
+    git rev-parse --git-dir &> /dev/null
 
     if [ $? == 0 ]; then
       local ENV_NAME=`basename \`pwd\``
@@ -143,7 +144,7 @@ if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
     fi
   }
 
-  function cd {
+  function cd() {
     builtin cd "$@" && check-for-virtualenv
   }
 
