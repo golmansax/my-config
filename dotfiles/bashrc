@@ -213,6 +213,8 @@ done
 export NVM_DIR=~/.nvm
 
 if (hash brew); then
+  echo 'Installing Mac config...'
+
   # On a Mac
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -221,6 +223,12 @@ if (hash brew); then
   source $(brew --prefix nvm)/nvm.sh
 
   export ANDROID_HOME=$(brew --prefix android-sdk)
+else
+  echo 'Installing Linux config...'
+
+  if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
+  fi
 fi
 
 if [ -f ~/.nvm/nvm.sh ]; then
