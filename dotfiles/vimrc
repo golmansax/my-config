@@ -22,7 +22,7 @@ set colorcolumn=80
 set backspace=indent,eol,start
 colorscheme solarized
 
-set bg=dark
+set bg=light
 
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist)\/|(\.(swp|ico|git|svn))$'
@@ -39,6 +39,7 @@ augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
   au BufNewFile,BufRead *.inc,*.html set filetype=php
   au BufNewFile,BufRead *.template set filetype=jinja
+  au BufNewFile,BufRead *.mjml set filetype=html
 augroup END
 
 " Bash like tab completion
@@ -46,7 +47,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+autocmd BufRead,BufWrite * if (! &bin && &ft != 'markdown') | silent! %s/\s\+$//ge | endif
 
 " Ignore python # smartindent
 :inoremap # X#
