@@ -184,6 +184,9 @@ LOCAL="$SRC/local"
 # Source local .bashrc if it exists
 [[ -a "$LOCAL/.bashrc" ]] && source "$LOCAL/.bashrc"
 
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+
 # For different bin paths
 BINS=(
   $SRC/my-config/bin
@@ -192,6 +195,8 @@ BINS=(
   $HOME/.arc/arcanist/bin
   $SRC/synchroform/bin
   /usr/local/heroku/bin
+  $GOPATH/bin
+  $GOROOT/bin
 )
 for i in ${!BINS[*]}; do
   BIN=${BINS[$i]}
