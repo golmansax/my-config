@@ -38,6 +38,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 augroup filetype
   au BufNewFile,BufRead *.eliom set filetype=ocaml
   au BufNewFile,BufRead *.inc,*.html set filetype=php
+  au BufNewFile,BufRead *.ejs set filetype=html
   au BufNewFile,BufRead *.template set filetype=jinja
   au BufNewFile,BufRead *.mjml set filetype=html
 augroup END
