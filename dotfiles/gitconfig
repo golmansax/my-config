@@ -8,6 +8,7 @@
 	rebase = true
 [push]
 	default = simple
+	followTags = true
 [branch]
   # Always setup 'git pull' to rebase instead of merge
   autosetuprebase = always
