@@ -1,0 +1,7 @@
+#!/bin/bash
+
+KARABINER_FILE=~/.karabiner.d/configuration/karabiner.json
+
+BOGUS=BOGUSBOGUS
+
+sed -i "" "s/false/${BOGUS}/g; s/true/false/g; s/${BOGUS}/true/" ${KARABINER_FILE}
