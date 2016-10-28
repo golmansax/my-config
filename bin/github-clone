@@ -1,12 +1,12 @@
 #!/bin/bash
 
 usage() {
-  USAGE='Usage: github-clone [repo-account] [repo] '
+  USAGE='Usage: github-clone [repo-account]/[repo] '
   USAGE+='[optional: output-folder]'
   echo $USAGE
   exit
 }
 
-[[ $# -lt 2 ]] && usage
+[[ $# -lt 1 ]] && usage
 
-git clone ssh://git@github.com/$1/${2}.git $3
+git clone ssh://git@github.com/${1}.git ${2}
