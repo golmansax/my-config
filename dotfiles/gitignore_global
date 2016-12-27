@@ -47,3 +47,7 @@ _SpecRunner.html
 # Grunt files #
 ###############
 .grunt
+
+# Python files #
+###############
+*.pyc
