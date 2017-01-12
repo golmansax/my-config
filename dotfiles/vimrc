@@ -25,7 +25,7 @@ colorscheme solarized
 set bg=light
 
 let g:ctrlp_max_files=0
-let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist)\/|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist)\/|(\.(swp|ico|git|svn|pyc))$'
 
 let g:jsx_ext_required = 0
 
