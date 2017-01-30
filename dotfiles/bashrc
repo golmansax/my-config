@@ -226,7 +226,7 @@ if (hash brew); then
     . `brew --prefix`/etc/bash_completion
   fi
 
-  source $(brew --prefix nvm)/nvm.sh
+  source /usr/local/opt/nvm/nvm.sh
 
   export ANDROID_HOME=$(brew --prefix android-sdk)
 else
