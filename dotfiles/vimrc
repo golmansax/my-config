@@ -41,7 +41,7 @@ augroup filetype
   au BufNewFile,BufRead *.ejs set filetype=html
   au BufNewFile,BufRead *.template set filetype=jinja
   au BufNewFile,BufRead *.mjml set filetype=html
-  au BufNewFile,BufRead *.inky set filetype=html
+  au BufNewFile,BufRead *.inky set filetype=eruby.html
 augroup END
 
 " Bash like tab completion
