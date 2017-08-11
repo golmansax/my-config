@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+REDISCLOUD_URL="$(heroku config:get REDISCLOUD_URL)"
+
+if [[ -z "${REDISCLOUD_URL}" ]]; then
+  echo 'Need REDISCLOUD_URL set in Heroku config'
+  exit 1
+fi
+
+HOST="$(echo "${REDISCLOUD_URL}" | sed 's/.*@\(.*redislabs.com\):.*/\1/')"
+PORT="$(echo "${REDISCLOUD_URL}" | sed 's/.*redislabs.com:\([0-9]*\)/\1/')"
+AUTH="$(echo "${REDISCLOUD_URL}" | sed 's/.*rediscloud:\(.*\)@redis.*/\1/')"
+
+redis-cli -h "${HOST}" -p "${PORT}" -a "${AUTH}"
