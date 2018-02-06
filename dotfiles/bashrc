@@ -143,6 +143,10 @@ if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
     if [ $? == 0 ]; then
       local ENV_NAME=`basename \`git rev-parse --show-toplevel\``
 
+      if [ ! -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+        ENV_NAME=`basename \`pwd\``
+      fi
+
       if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
         workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
       fi
@@ -249,5 +253,8 @@ if [ -f '/Users/holman/apps/google-cloud-sdk/completion.bash.inc' ]; then source
 
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Set up Docker
+eval $(docker-machine env default)
 
 echo "bashrc loaded!"
