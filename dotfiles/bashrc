@@ -254,7 +254,7 @@ if [ -f '/Users/holman/apps/google-cloud-sdk/completion.bash.inc' ]; then source
 # Annoying RVM is a diva and wants to be last
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Set up Docker
-eval $(docker-machine env default)
+# Set up Docker machine if needed
+# eval $(docker-machine env default)
 
 echo "bashrc loaded!"
