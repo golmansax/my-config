@@ -58,3 +58,6 @@
 [submodule "dotfiles/vim/bundle/json5.vim"]
 	path = dotfiles/vim/bundle/json5.vim
 	url = https://github.com/gutenye/json5.vim
+[submodule "dotfiles/vim/bundle/vim-flow"]
+	path = dotfiles/vim/bundle/vim-flow
+	url = https://github.com/flowtype/vim-flow
