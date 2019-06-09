@@ -61,3 +61,6 @@
 [submodule "dotfiles/vim/bundle/vim-flow"]
 	path = dotfiles/vim/bundle/vim-flow
 	url = https://github.com/flowtype/vim-flow
+[submodule "dotfiles/vim/bundle/vim-vue"]
+	path = dotfiles/vim/bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git
