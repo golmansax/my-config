@@ -124,14 +124,13 @@ export BUNDLER_EDITOR="$EDITOR"
 # Below are things custom to my src dir
 SRC="$HOME/src"
 
+# Default python3 to 3.8
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
 # Python virtualenvwrapper
 if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
   # Python bin located differently on Mac vs Linux
-  if [ -f /usr/local/bin/python3 ]; then
-    VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-  else
-    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-  fi
+  VIRTUALENVWRAPPER_PYTHON=`which python3`
 
   export WORKON_HOME=~/.virtualenvs
   source /usr/local/bin/virtualenvwrapper.sh
@@ -228,7 +227,14 @@ if (hash brew); then
   # On a Mac
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+  elif [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d"
+    . $(brew --prefix)/share/bash-completion/bash_completion
   fi
+
+  # Remove colon (:) from list of word completion separators
+  # https://github.com/dsifford/yarn-completion/issues/34
+  COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
 
   source /usr/local/opt/nvm/nvm.sh
 
@@ -256,12 +262,12 @@ if [ -f '/Users/holman/apps/google-cloud-sdk/path.bash.inc' ]; then source '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/holman/apps/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/holman/apps/google-cloud-sdk/completion.bash.inc'; fi
 
-# Annoying RVM is a diva and wants to be last
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # Set up Docker machine if needed
 # eval $(docker-machine env default)
 
-echo "bashrc loaded!"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Annoying RVM is a diva and wants to be last
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+echo "bashrc loaded!"
