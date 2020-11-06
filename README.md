@@ -9,3 +9,4 @@ Gravitar is from: http://www.alispagnola.com/Free/saxophone2.jpg.
 * Adding: `git submodule add [git URL] dotfiles/vim/bundle/[repo-name]
 * When checking out repo for first time: `git submodule update --init --recursive`
 * When updating submodules: `git submodule update --recursive --remote`
+* When removing submodules: see https://gist.github.com/myusuf3/7f645819ded92bda6677
