@@ -19,7 +19,7 @@
 [alias]
   fetch-pull = !git fetch && git stash-pull
   prune-branches = !git remote prune origin && git branch --merged origin/HEAD | \
-    grep -v master | grep -v staging | grep -v develop | xargs -n 1 git branch -d
+    grep -v master | grep -v main | grep -v staging | grep -v develop | xargs -n 1 git branch -d
   push-upstream = !git push origin `git rev-parse --abbrev-ref HEAD` \
     --set-upstream
   push-force-with-lease = push --force-with-lease

@@ -64,3 +64,7 @@
 [submodule "dotfiles/vim/bundle/ctrlp"]
 	path = dotfiles/vim/bundle/ctrlp
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "dotfiles/vim/bundle/copilot.vim"]
+	path = dotfiles/vim/bundle/copilot.vim
+	url = https://github.com/github/copilot.vim.git
+  branch = release

@@ -127,42 +127,6 @@ SRC="$HOME/src"
 # Default python3 to 3.8
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
-# Python virtualenvwrapper
-if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
-  # Python bin located differently on Mac vs Linux
-  VIRTUALENVWRAPPER_PYTHON=`which python3`
-
-  export WORKON_HOME=~/.virtualenvs
-  source /usr/local/bin/virtualenvwrapper.sh
-
-  # ***** virtualenv-cd *****
-  function check-for-virtualenv {
-    git rev-parse --show-toplevel &> /dev/null
-
-    if [ $? == 0 ]; then
-      local ENV_NAME=`basename \`git rev-parse --show-toplevel\``
-
-      if [ ! -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
-        ENV_NAME=`basename \`pwd\``
-      fi
-
-      if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
-        workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
-      fi
-    elif [ $CD_VIRTUAL_ENV ]; then
-      deactivate && unset CD_VIRTUAL_ENV
-    fi
-  }
-
-  function cd() {
-    builtin cd "$@" && check-for-virtualenv
-  }
-
-  check-for-virtualenv
-fi
-# ***** end virtualenv-cd *****
-
-
 # Going to root directory of current git repo or a default git directory
 GIT_DIR_COMMAND='git rev-parse --show-toplevel'
 alias cd-git="$GIT_DIR_COMMAND && cd \`$GIT_DIR_COMMAND\`"
@@ -182,6 +146,10 @@ _cd-src_command() {
   fi
 }
 alias cd-src=_cd-src_command
+
+# Default to nvim
+alias vim="nvim"
+alias vi="nvim"
 
 _cd-src_complete() {
   COMPREPLY=($(compgen -W "$(ls $SRC)" -- ${COMP_WORDS[COMP_CWORD]}))
@@ -264,6 +232,42 @@ if [ -f '/Users/holman/apps/google-cloud-sdk/completion.bash.inc' ]; then source
 
 # Set up Docker machine if needed
 # eval $(docker-machine env default)
+
+# Python virtualenvwrapper (needs be after PS1 definitions)
+if [ -a /usr/local/bin/virtualenvwrapper.sh ]; then
+  # Python bin located differently on Mac vs Linux
+  VIRTUALENVWRAPPER_PYTHON=`which python3`
+
+  export WORKON_HOME=~/.virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
+
+  # ***** virtualenv-cd *****
+  function check-for-virtualenv {
+    git rev-parse --show-toplevel &> /dev/null
+
+    if [ $? == 0 ]; then
+      local ENV_NAME=`basename \`git rev-parse --show-toplevel\``
+
+      if [ ! -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+        ENV_NAME=`basename \`pwd\``
+      fi
+
+      if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+        echo "Loading virtualenv ${ENV_NAME}..."
+        workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+      fi
+    elif [ $CD_VIRTUAL_ENV ]; then
+      deactivate && unset CD_VIRTUAL_ENV
+    fi
+  }
+
+  function cd() {
+    builtin cd "$@" && check-for-virtualenv
+  }
+
+  check-for-virtualenv
+fi
+# ***** end virtualenv-cd *****
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

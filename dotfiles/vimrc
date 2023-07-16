@@ -21,16 +21,20 @@ set visualbell " Flash screen instead of sounding beep
 set colorcolumn=80
 set backspace=indent,eol,start
 set backupcopy=yes
+set mouse=r
 
 colorscheme solarized
 
 set bg=light
 
 let g:ctrlp_max_files=0
-let g:ctrlp_custom_ignore = '\v[\/](build|third_party|coverage|bower_components|tmp|node_modules|target|dist|flow-typed)\/|(\.(swp|ico|git|svn|pyc))$'
+let g:ctrlp_custom_ignore = '\v[\/](build|coverage|bower_components|tmp|node_modules|target|dist|flow-typed|uploads)\/|(\.(swp|ico|git|svn|pyc))$'
 
 let g:jsx_ext_required = 0
 let g:javascript_plugin_flow = 1
+
+" For Google Copilot
+highlight CopilotSuggestion guifg=#00aaaa ctermfg=8
 
 " Indent settings for makefile
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
